@@ -11,7 +11,7 @@ FROM eclipse-temurin:17 AS BUILD
 RUN apt update && apt install unzip -y
 COPY . /app/
 WORKDIR /app/
-RUN --mount=type=cache,target=/root/.m2 ./mvnw -C clean test package -Pproduction
+RUN --mount=type=cache,target=/root/.m2 --mount=type=cache,target=/root/.vaadin ./mvnw -C clean test package -Pproduction
 WORKDIR /app/target/
 RUN ls -la
 RUN unzip *.zip -d app/
