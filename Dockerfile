@@ -8,13 +8,12 @@
 
 # The "Build" stage. Copies the entire project into the container, into the /app/ folder, and builds it.
 FROM eclipse-temurin:17 AS BUILD
-RUN apt update && apt install unzip -y
 COPY . /app/
 WORKDIR /app/
 RUN --mount=type=cache,target=/root/.m2 --mount=type=cache,target=/root/.vaadin ./mvnw -C clean test package -Pproduction
 WORKDIR /app/target/
 RUN ls -la
-RUN unzip *.zip -d app/
+RUN mkdir app && tar xvzf *.tar.gz -C app
 # At this point, we have the app (executable bash scrip plus a bunch of jars) in the
 # /app/target/app/ folder.
 
