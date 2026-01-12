@@ -62,10 +62,10 @@
             </exclusions>
         </dependency>
         <dependency>
-       <groupId>com.vaadin</groupId>
-      <artifactId>vaadin-core</artifactId>
-      <optional>true</optional>
-    </dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-dev</artifactId>
+            <optional>true</optional>
+        </dependency>
         <!-- Vaadin Boot which runs Vaadin apps from main() function easily: https://github.com/mvysny/vaadin-boot -->
         <dependency>
             <groupId>com.github.mvysny.vaadin-boot</groupId>
